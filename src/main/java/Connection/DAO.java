@@ -21,6 +21,18 @@ public static List<Entities> show(Connection con) throws SQLException
 	}
 	return list;
 }
+public  boolean validate(loginEntities LE ,Connection con) throws SQLException 
+{
+	//Make   a new boolean variable
+	boolean status = false;
+	String querry = "select * from accounts where username=? and password=?";
+	PreparedStatement PS = con.prepareStatement(querry);
+	PS.setString(1, LE.getUserName());
+	PS.setString(2, LE.getPassWord());
+	ResultSet RS = PS.executeQuery();
+	status = RS.next();
+	return status;
+}
 public static void printList(Connection con ) throws SQLException
 {
 	List list = show(con);
@@ -47,6 +59,15 @@ public static void insertList(Connection con,Entities et ) throws SQLException
 	PS.setString(3, et.getHoTen());
 	PS.setInt(2,et.getNamSinh());
 	PS.setString(4,et.getQueQuan());
+	PS.executeUpdate();
+}
+public static void insertUser(Connection con , loginEntities LE) throws SQLException
+{
+	String query = "insert into accounts set username =? , password =? ";
+	PreparedStatement PS = con.prepareStatement(query);
+	System.out.println(PS);
+	PS.setString(1, LE.getUserName());
+	PS.setString(2, LE.getPassWord());
 	PS.executeUpdate();
 }
 public static void updateList(Connection con ,Entities et) throws SQLException

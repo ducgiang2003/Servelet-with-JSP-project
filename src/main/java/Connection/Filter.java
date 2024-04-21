@@ -14,7 +14,7 @@ import javax.servlet.http.HttpFilter;
 /**
  * Servlet Filter implementation class Filter
  */
-@WebFilter(urlPatterns = {"/showList","/insertList","/editList","/delete"})
+@WebFilter(urlPatterns = {"/showList","/insertList","/editList","/delete","/loginServlet","/registerServlet"})
 public class Filter extends HttpFilter implements javax.servlet.Filter {
        
     /**

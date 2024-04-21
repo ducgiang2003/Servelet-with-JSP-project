@@ -10,6 +10,7 @@ private static String userName ="root";
 private static String userPass = "haha4540";
 private static String driverName = "com.mysql.jdbc.Driver";
 private static String connectionUrl="jdbc:mysql://localhost:3306/employee?autoReconnect=true&useSSL=false";
+
 public static Connection getConnection() throws ClassNotFoundException, SQLException
 {
 	Connection con ;
